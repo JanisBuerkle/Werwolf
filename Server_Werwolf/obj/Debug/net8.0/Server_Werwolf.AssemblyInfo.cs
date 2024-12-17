@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Server_Werwolf")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d21c1bae32d69aa2d2e70fa361363f8a8b69138b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Server_Werwolf")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Server_Werwolf")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -13,6 +13,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Werwolf
-build_property.ProjectDir = C:\Repos\Werwolf\Werwolf\
+build_property.ProjectDir = C:\Users\brotc\RiderProjects\Werwolf\Werwolf\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

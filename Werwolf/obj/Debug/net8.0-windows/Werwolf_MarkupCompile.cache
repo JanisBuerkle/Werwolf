@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Repos\Werwolf\Werwolf\obj\Debug\net8.0-windows\
+C:\Users\brotc\RiderProjects\Werwolf\Werwolf\obj\Debug\net8.0-windows\
 Werwolf
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Repos\Werwolf\Werwolf\Window\App.xaml
+C:\Users\brotc\RiderProjects\Werwolf\Werwolf\Window\App.xaml
 6-860067622
 
 15-1098200335
-2171013573958
+217-139215112
 GameMenu\GameMenuView.xaml;LobbyMenu\LobbyMenuView.xaml;MainMenu\MainMenuView.xaml;MultiplayerMenu\MultiplayerMenuView.xaml;Window\MainWindow.xaml;Window\Styles.xaml;
 
 False

@@ -37,6 +37,8 @@
     <ItemGroup>
       <None Remove="Assets\werwolf_logo.png" />
       <Resource Include="Assets\werwolf_logo.png" />
+      <None Remove="Assets\mainmenu_background.png" />
+      <Resource Include="Assets\mainmenu_background.png" />
     </ItemGroup>
 
     <ItemGroup>

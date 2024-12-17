@@ -7,7 +7,6 @@
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Content" Value="✕"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Margin" Value="2"/>
         <Setter Property="Width" Value="30"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="FontSize" Value="25"/>
@@ -33,7 +32,6 @@
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Content" Value="{Binding }"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Margin" Value="2"/>
         <Setter Property="Width" Value="30"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="FontSize" Value="25"/>
@@ -49,6 +47,22 @@
                             <Setter Property="Background" Value="Gray"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="RoundedButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="White"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

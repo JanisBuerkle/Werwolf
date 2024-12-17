@@ -27,41 +27,41 @@ public class MainViewModel : ViewModelBase
         HubService = new HubService(this, MultiplayerMenuViewModel);
         LobbyMenuViewModel = new LobbyMenuViewModel();
         GameMenuViewModel = new GameMenuViewModel();
-        MainMenuViewModel = new MainMenuViewModel();
+        MainMenuViewModel = new MainMenuViewModel(this);
 
         GoToMainMenu();
     }
 
     public void GoToMainMenu()
     {
-        _mainMenuVisible = true;
-        _multiplayerMenuVisible = false;
-        _lobbyMenuVisible = false;
-        _gameMenuVisible = false;
+        MainMenuVisible = true;
+        MultiplayerMenuVisible = false;
+        LobbyMenuVisible = false;
+        GameMenuVisible = false;
     }
 
     public void GoToMultiplayerMenu()
     {
-        _mainMenuVisible = false;
-        _multiplayerMenuVisible = true;
-        _lobbyMenuVisible = false;
-        _gameMenuVisible = false;
+        MainMenuVisible = false;
+        MultiplayerMenuVisible = true;
+        LobbyMenuVisible = false;
+        GameMenuVisible = false;
     }
 
     public void GoToLobbyMenu()
     {
-        _mainMenuVisible = false;
-        _multiplayerMenuVisible = false;
-        _lobbyMenuVisible = true;
-        _gameMenuVisible = false;
+        MainMenuVisible = false;
+        MultiplayerMenuVisible = false;
+        LobbyMenuVisible = true;
+        GameMenuVisible = false;
     }
 
     public void GoToGameMenu()
     {
-        _mainMenuVisible = false;
-        _multiplayerMenuVisible = false;
-        _lobbyMenuVisible = false;
-        _gameMenuVisible = true;
+        MainMenuVisible = false;
+        MultiplayerMenuVisible = false;
+        LobbyMenuVisible = false;
+        GameMenuVisible = true;
     }
 
     public bool MainMenuVisible

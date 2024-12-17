@@ -1132,30 +1132,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bks\\.nuget\\packages\\": {}
+    "C:\\Users\\brotc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Repos\\Werwolf\\Werwolf\\Werwolf.csproj",
+      "projectUniqueName": "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Werwolf\\Werwolf.csproj",
       "projectName": "Werwolf",
-      "projectPath": "C:\\Repos\\Werwolf\\Werwolf\\Werwolf.csproj",
-      "packagesPath": "C:\\Users\\bks\\.nuget\\packages\\",
-      "outputPath": "C:\\Repos\\Werwolf\\Werwolf\\obj\\",
+      "projectPath": "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Werwolf\\Werwolf.csproj",
+      "packagesPath": "C:\\Users\\brotc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Werwolf\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\bks\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\brotc\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0-windows"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://mafbsvproget1.teamtechnik.com/nuget/approved-nuget/": {},
-        "https://mafbsvproget1.teamtechnik.com/nuget/unapproved-nuget/": {},
-        "https://www.myget.org/F/abtsoftware/api/v2": {}
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -1167,11 +1163,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1206,7 +1197,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
