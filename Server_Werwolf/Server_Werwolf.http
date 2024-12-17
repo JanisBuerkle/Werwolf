@@ -1,0 +1,6 @@
+@Server_Werwolf_HostAddress = http://localhost:5196
+
+GET {{Server_Werwolf_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

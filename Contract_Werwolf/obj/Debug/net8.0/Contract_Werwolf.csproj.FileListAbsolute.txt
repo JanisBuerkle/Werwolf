@@ -1,0 +1,13 @@
+C:\Repos\Werwolf\Contract_Werwolf\bin\Debug\net8.0\Contract_Werwolf.deps.json
+C:\Repos\Werwolf\Contract_Werwolf\bin\Debug\net8.0\Contract_Werwolf.dll
+C:\Repos\Werwolf\Contract_Werwolf\bin\Debug\net8.0\Contract_Werwolf.pdb
+C:\Repos\Werwolf\Contract_Werwolf\obj\Debug\net8.0\Contract_Werwolf.csproj.AssemblyReference.cache
+C:\Repos\Werwolf\Contract_Werwolf\obj\Debug\net8.0\Contract_Werwolf.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repos\Werwolf\Contract_Werwolf\obj\Debug\net8.0\Contract_Werwolf.AssemblyInfoInputs.cache
+C:\Repos\Werwolf\Contract_Werwolf\obj\Debug\net8.0\Contract_Werwolf.AssemblyInfo.cs
+C:\Repos\Werwolf\Contract_Werwolf\obj\Debug\net8.0\Contract_Werwolf.csproj.CoreCompileInputs.cache
+C:\Repos\Werwolf\Contract_Werwolf\obj\Debug\net8.0\Contract_Werwolf.sourcelink.json
+C:\Repos\Werwolf\Contract_Werwolf\obj\Debug\net8.0\Contract_Werwolf.dll
+C:\Repos\Werwolf\Contract_Werwolf\obj\Debug\net8.0\refint\Contract_Werwolf.dll
+C:\Repos\Werwolf\Contract_Werwolf\obj\Debug\net8.0\Contract_Werwolf.pdb
+C:\Repos\Werwolf\Contract_Werwolf\obj\Debug\net8.0\ref\Contract_Werwolf.dll
