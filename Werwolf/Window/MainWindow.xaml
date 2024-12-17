@@ -8,14 +8,31 @@
         xmlns:mainMenu="clr-namespace:Werwolf.MainMenu"
         xmlns:multiplayerMenu="clr-namespace:Werwolf.MultiplayerMenu"
         mc:Ignorable="d"
-        Title="MadinWindow" Height="450" Width="800" 
+        Title="Werwolf"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True" Background="Transparent" ResizeMode="NoResize"
+        Icon="pack://application:,,,/Assets/werwolf_logo.png"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        WindowStyle="None"
         Name="Window">
  <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </Window.Resources>
     <Border DataContext="{Binding ElementName=Window, Path=MainViewModel}" Background="#1f1f1f"
-            BorderThickness="0" CornerRadius="20">
+            BorderThickness="0" CornerRadius="10">
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions> 
+
+            <Button Grid.Column="2" Grid.Row="0" Style="{StaticResource CloseButton}" Click="CloseProgram_Click"/>
+            <Button Grid.Column="1" Grid.Row="0" Style="{StaticResource FullScreenButton}" Content="{Binding ScreenModeSymbol}" Click="FullScreenProgram_Click"/>
             <gameMenu:GameMenuView
                 Visibility="{Binding GameMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
                 ViewModel="{Binding GameMenuViewModel}" />

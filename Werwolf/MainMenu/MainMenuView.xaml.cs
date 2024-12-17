@@ -6,8 +6,7 @@ namespace Werwolf.MainMenu;
 public partial class MainMenuView : UserControl
 {
     public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register(
-        nameof(ViewModel), typeof(MainMenuViewModel), typeof(MainMenuViewModel),
-        new PropertyMetadata(default(MainMenuViewModel)));
+        nameof(ViewModel), typeof(MainMenuViewModel), typeof(MainMenuView), new PropertyMetadata(default(MainMenuViewModel)));
 
     public MainMenuViewModel ViewModel
     {

@@ -1,4 +1,5 @@
 ﻿using Werwolf.GameMenu;
+using Werwolf.Hub;
 using Werwolf.LobbyMenu;
 using Werwolf.MainMenu;
 using Werwolf.MultiplayerMenu;
@@ -12,6 +13,9 @@ public class MainViewModel : ViewModelBase
     private bool _lobbyMenuVisible;
     private bool _gameMenuVisible;
 
+    private string _screenModeSymbol = "\u25a2";
+
+    public HubService HubService { get; }
     public MainMenuViewModel MainMenuViewModel { get; }
     public MultiplayerMenuViewModel MultiplayerMenuViewModel { get; set; }
     public LobbyMenuViewModel LobbyMenuViewModel { get; set; }
@@ -20,11 +24,12 @@ public class MainViewModel : ViewModelBase
     public MainViewModel()
     {
         MultiplayerMenuViewModel = new MultiplayerMenuViewModel();
+        HubService = new HubService(this, MultiplayerMenuViewModel);
         LobbyMenuViewModel = new LobbyMenuViewModel();
         GameMenuViewModel = new GameMenuViewModel();
         MainMenuViewModel = new MainMenuViewModel();
 
-        MainMenuVisible = true;
+        GoToMainMenu();
     }
 
     public void GoToMainMenu()
@@ -116,6 +121,19 @@ public class MainViewModel : ViewModelBase
 
             _gameMenuVisible = value;
             OnPropertyChanged();
+        }
+    }
+
+    public string ScreenModeSymbol
+    {
+        get => _screenModeSymbol;
+        set
+        {
+            if (_screenModeSymbol != value)
+            {
+                _screenModeSymbol = value;
+                OnPropertyChanged();
+            }
         }
     }
 }
