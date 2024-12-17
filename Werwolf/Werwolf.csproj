@@ -39,11 +39,19 @@
       <Resource Include="Assets\werwolf_logo.png" />
       <None Remove="Assets\mainmenu_background.png" />
       <Resource Include="Assets\mainmenu_background.png" />
+      <None Remove="Assets\join.png" />
+      <Resource Include="Assets\join.png" />
+      <None Remove="Assets\add.png" />
+      <Resource Include="Assets\add.png" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
       <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="9.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Contract_Werwolf\Contract_Werwolf.csproj" />
     </ItemGroup>
 
 </Project>

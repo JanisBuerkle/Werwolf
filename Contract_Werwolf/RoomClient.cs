@@ -11,7 +11,7 @@ public class RoomClient : IRoomClient
         var jsonContent = JsonConvert.SerializeObject(room);
         var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-        var addPlayerUrl = $"http://localhost:5000/api/Rooms/startroom/{room.Id}";
+        var addPlayerUrl = $"http://localhost:5196/api/Rooms/startroom/{room.Id}";
 
         var response = await httpClient.PutAsync(addPlayerUrl, httpContent);
         response.EnsureSuccessStatusCode();
@@ -23,7 +23,7 @@ public class RoomClient : IRoomClient
         var jsonContent = JsonConvert.SerializeObject(roomToUpdate);
         var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-        var addPlayerUrl = $"http://localhost:5000/api/Rooms/resetroom/{playername}";
+        var addPlayerUrl = $"http://localhost:5196/api/Rooms/resetroom/{playername}";
 
         var response = await httpClient.PutAsync(addPlayerUrl, httpContent);
         response.EnsureSuccessStatusCode();
@@ -35,7 +35,7 @@ public class RoomClient : IRoomClient
         var jsonContent = JsonConvert.SerializeObject(roomToUpdate);
         var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-        var addPlayerUrl = $"http://localhost:5000/api/Rooms/addPlayer/{playerInformations}";
+        var addPlayerUrl = $"http://localhost:5196/api/Rooms/addPlayer/{playerInformations}";
 
         var response = await httpClient.PutAsync(addPlayerUrl, httpContent);
         response.EnsureSuccessStatusCode();
@@ -49,12 +49,12 @@ public class RoomClient : IRoomClient
         var jsonContent = JsonConvert.SerializeObject(roomToUpdate);
         var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-        var addPlayerUrl = $"http://localhost:5000/api/Rooms/removePlayer/{id}";
+        var addPlayerUrl = $"http://localhost:5196/api/Rooms/removePlayer/{id}";
 
         var response2 = await httpClient.PutAsync(addPlayerUrl, httpContent);
         response2.EnsureSuccessStatusCode();
         
-        var removePlayerUrl = $"http://localhost:5000/api/Player/{id}";
+        var removePlayerUrl = $"http://localhost:5196/api/Player/{id}";
 
         var response = await httpClient.DeleteAsync(removePlayerUrl);
         response.EnsureSuccessStatusCode();
@@ -66,7 +66,7 @@ public class RoomClient : IRoomClient
         var jsonContent = JsonConvert.SerializeObject(room);
         var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-        var response = await httpClient.PostAsync("http://localhost:5000/api/Rooms", httpContent);
+        var response = await httpClient.PostAsync("http://localhost:5196/api/Rooms", httpContent);
         if (response.IsSuccessStatusCode)
         {
             var responseString = await response.Content.ReadAsStringAsync();
@@ -76,20 +76,22 @@ public class RoomClient : IRoomClient
         return room;
     }
 
-    public async Task<string> GetAllRooms()
+    public async Task<List<RoomDto>> GetAllRooms()
     {
         var httpClient = new HttpClient();
-        var respone = await httpClient.GetAsync("http://localhost:5000/api/Rooms");
-        respone.EnsureSuccessStatusCode();
-
-        var gettedRooms = await respone.Content.ReadAsStringAsync();
-        return gettedRooms;
+        var response = await httpClient.GetAsync("http://localhost:5196/api/Rooms");
+        response.EnsureSuccessStatusCode();
+        
+        var responseContent = await response.Content.ReadAsStringAsync();
+        
+        var rooms = JsonConvert.DeserializeObject<List<RoomDto>>(responseContent);
+        return rooms;
     }
     
     private async Task GetPlayers()
     {
         var httpClient = new HttpClient();
-        var respone = await httpClient.GetAsync("http://localhost:5000/api/Player");
+        var respone = await httpClient.GetAsync("http://localhost:5196/api/Player");
         respone.EnsureSuccessStatusCode();
     }
 }

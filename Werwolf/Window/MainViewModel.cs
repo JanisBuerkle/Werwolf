@@ -1,4 +1,5 @@
-﻿using Werwolf.GameMenu;
+﻿using Contract_Werwolf;
+using Werwolf.GameMenu;
 using Werwolf.Hub;
 using Werwolf.LobbyMenu;
 using Werwolf.MainMenu;
@@ -16,6 +17,7 @@ public class MainViewModel : ViewModelBase
     private string _screenModeSymbol = "\u25a2";
 
     public HubService HubService { get; }
+    public RoomClient RoomClient { get; }
     public MainMenuViewModel MainMenuViewModel { get; }
     public MultiplayerMenuViewModel MultiplayerMenuViewModel { get; set; }
     public LobbyMenuViewModel LobbyMenuViewModel { get; set; }
@@ -23,7 +25,8 @@ public class MainViewModel : ViewModelBase
 
     public MainViewModel()
     {
-        MultiplayerMenuViewModel = new MultiplayerMenuViewModel();
+        RoomClient = new RoomClient();
+        MultiplayerMenuViewModel = new MultiplayerMenuViewModel(this, RoomClient);
         HubService = new HubService(this, MultiplayerMenuViewModel);
         LobbyMenuViewModel = new LobbyMenuViewModel();
         GameMenuViewModel = new GameMenuViewModel();

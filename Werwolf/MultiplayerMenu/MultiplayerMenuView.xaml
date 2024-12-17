@@ -4,8 +4,35 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        
+             d:DesignHeight="300" d:DesignWidth="300"
+             Name="MultiplayerMenu">
+    <Grid DataContext="{Binding ElementName=MultiplayerMenu, Path=ViewModel}">
+        <Grid IsHitTestVisible="False">
+            <Image Source="../Assets/mainmenu_background.png" Stretch="UniformToFill" />
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource CreateOrJoinButton}" Margin="0,0,20,0" Command="{Binding CreateRoomCommand}">
+                <Button.Content>
+                    <Image Source="../Assets/add.png" Stretch="Fill"/>
+                </Button.Content>
+            </Button>            
+            <Button Grid.Row="1" Grid.Column="2" Style="{StaticResource CreateOrJoinButton}" Margin="20,0,0,0" Command="{Binding }">
+                <Button.Content>
+                    <Image Source="../Assets/join.png" Stretch="Fill"/>
+                </Button.Content>
+            </Button>
+        </Grid>
     </Grid>
 </UserControl>

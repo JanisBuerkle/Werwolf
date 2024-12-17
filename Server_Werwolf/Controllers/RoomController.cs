@@ -153,7 +153,7 @@ public class RoomsController : ControllerBase
             player = (await context.Players.AddAsync(new Player { Name = playerName, ConnectionId = connectionId, RoomId = room.Id})).Entity;
         }
 
-        if (room.Players.Count >= 2)
+        if (room.Players.Count >= 3)
         {
             room.StartButtonEnabled = true;
         }
@@ -189,7 +189,7 @@ public class RoomsController : ControllerBase
                     room.OnlineUsersNumber--;
                     
                     var httpClient = new HttpClient();
-                    var removePlayerUrl = $"http://localhost:5000/api/Player/{player.Id}";
+                    var removePlayerUrl = $"http://localhost:5196/api/Player/{player.Id}";
                     var response = await httpClient.DeleteAsync(removePlayerUrl);
 
                     context.RoomItems.Update(room);
