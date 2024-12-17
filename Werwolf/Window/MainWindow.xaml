@@ -1,0 +1,33 @@
+<Window x:Class="Werwolf.Window.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gameMenu="clr-namespace:Werwolf.GameMenu"
+        xmlns:lobbyMenu="clr-namespace:Werwolf.LobbyMenu"
+        xmlns:mainMenu="clr-namespace:Werwolf.MainMenu"
+        xmlns:multiplayerMenu="clr-namespace:Werwolf.MultiplayerMenu"
+        mc:Ignorable="d"
+        Title="MadinWindow" Height="450" Width="800" 
+        Name="Window">
+ <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Window.Resources>
+    <Border DataContext="{Binding ElementName=Window, Path=MainViewModel}" Background="#1f1f1f"
+            BorderThickness="0" CornerRadius="20">
+        <Grid>
+            <gameMenu:GameMenuView
+                Visibility="{Binding GameMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                ViewModel="{Binding GameMenuViewModel}" />
+            <lobbyMenu:LobbyMenuView
+                Visibility="{Binding LobbyMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                ViewModel="{Binding LobbyMenuViewModel}" />
+            <mainMenu:MainMenuView
+                Visibility="{Binding MainMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                ViewModel="{Binding MainMenuViewModel}" />
+            <multiplayerMenu:MultiplayerMenuView
+                Visibility="{Binding MultiplayerMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                ViewModel="{Binding MultiplayerMenuViewModel}" />
+        </Grid>
+    </Border>
+</Window>
