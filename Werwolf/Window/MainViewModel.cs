@@ -33,6 +33,8 @@ public class MainViewModel : ViewModelBase
         MainMenuViewModel = new MainMenuViewModel(this);
 
         GoToMainMenu();
+        // GoToLobbyMenu();
+        GoToGameMenu();
     }
 
     public void GoToMainMenu()

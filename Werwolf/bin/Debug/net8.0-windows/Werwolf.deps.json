@@ -10,7 +10,8 @@
         "dependencies": {
           "CommunityToolkit.Mvvm": "8.4.0",
           "Contract_Werwolf": "1.0.0",
-          "Microsoft.AspNetCore.SignalR.Client": "9.0.0"
+          "Microsoft.AspNetCore.SignalR.Client": "9.0.0",
+          "WPF-UI-Enhanced": "10.0.0"
         },
         "runtime": {
           "Werwolf.dll": {}
@@ -203,6 +204,7 @@
           }
         }
       },
+      "Microsoft.Win32.SystemEvents/6.0.0": {},
       "Newtonsoft.Json/13.0.3": {
         "runtime": {
           "lib/net6.0/Newtonsoft.Json.dll": {
@@ -217,6 +219,11 @@
             "assemblyVersion": "9.0.0.0",
             "fileVersion": "9.0.24.52809"
           }
+        }
+      },
+      "System.Drawing.Common/6.0.0": {
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "6.0.0"
         }
       },
       "System.IO.Pipelines/9.0.0": {
@@ -268,6 +275,17 @@
           "lib/net8.0/System.Threading.Channels.dll": {
             "assemblyVersion": "9.0.0.0",
             "fileVersion": "9.0.24.52809"
+          }
+        }
+      },
+      "WPF-UI-Enhanced/10.0.0": {
+        "dependencies": {
+          "System.Drawing.Common": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Wpf.Ui.Enhanced.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.0.0"
           }
         }
       },
@@ -406,6 +424,13 @@
       "path": "microsoft.extensions.primitives/9.0.0",
       "hashPath": "microsoft.extensions.primitives.9.0.0.nupkg.sha512"
     },
+    "Microsoft.Win32.SystemEvents/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hqTM5628jSsQiv+HGpiq3WKBl2c8v1KZfby2J6Pr7pEPlK9waPdgEO6b8A/+/xn/yZ9ulv8HuqK71ONy2tg67A==",
+      "path": "microsoft.win32.systemevents/6.0.0",
+      "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
+    },
     "Newtonsoft.Json/13.0.3": {
       "type": "package",
       "serviceable": true,
@@ -419,6 +444,13 @@
       "sha512": "sha512-ddppcFpnbohLWdYKr/ZeLZHmmI+DXFgZ3Snq+/E7SwcdW4UnvxmaugkwGywvGVWkHPGCSZjCP+MLzu23AL5SDw==",
       "path": "system.diagnostics.diagnosticsource/9.0.0",
       "hashPath": "system.diagnostics.diagnosticsource.9.0.0.nupkg.sha512"
+    },
+    "System.Drawing.Common/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NfuoKUiP2nUWwKZN6twGqXioIe1zVD0RIj2t976A+czLHr2nY454RwwXs6JU9Htc6mwqL6Dn/nEL3dpVf2jOhg==",
+      "path": "system.drawing.common/6.0.0",
+      "hashPath": "system.drawing.common.6.0.0.nupkg.sha512"
     },
     "System.IO.Pipelines/9.0.0": {
       "type": "package",
@@ -454,6 +486,13 @@
       "sha512": "sha512-hzACdIf1C+4Dqos5ijV404b94+LqfIC8nfS3mNpCDFWowb1N3PNfJPopneq32ahWlDeyaPZJqjBk76YFR69Rpg==",
       "path": "system.threading.channels/9.0.0",
       "hashPath": "system.threading.channels.9.0.0.nupkg.sha512"
+    },
+    "WPF-UI-Enhanced/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Otz5MfIza1FDcvMDF7pUjurk8YyKowR7qAGckyvVPeY7I4baeYQ9BRmjFMZFVFzfs67qsq4Y1YXjU5qdlnJVKg==",
+      "path": "wpf-ui-enhanced/10.0.0",
+      "hashPath": "wpf-ui-enhanced.10.0.0.nupkg.sha512"
     },
     "Contract_Werwolf/1.0.0": {
       "type": "project",

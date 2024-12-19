@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "YlLGfFGAdGE=",
+  "dgSpecHash": "JNXVJNFBsOM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj",
+  "projectFilePath": "C:\\Repos\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\brotc\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\bks\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }

@@ -3,10 +3,69 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:Werwolf.LobbyMenu"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        
+             d:DesignHeight="300" d:DesignWidth="300"
+             Name="GameMenu" Background="WhiteSmoke">
+    <Grid DataContext="{Binding ElementName=GameMenu, Path=ViewModel}">
+        <!-- Outer Grid for margins -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" /> <!-- Platz oben -->
+            <RowDefinition Height="8*" /> <!-- Hauptbereich -->
+            <RowDefinition Height="*" /> <!-- Platz unten -->
+            <RowDefinition Height="*" /> <!-- Platz unten -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" /> <!-- Platz links -->
+            <ColumnDefinition Width="8*" /> <!-- Hauptbereich -->
+            <ColumnDefinition Width="*" /> <!-- Platz rechts -->
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0" Background="{Binding BackgroundColor}" />
+        <TextBlock Grid.Row="1" Grid.Column="0" Background="{Binding BackgroundColor}"
+                   Foreground="{Binding ForegroundColor}" />
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <ui:TextBox Background="{Binding BackgroundColor}"
+                        Foreground="{Binding ForegroundColor}" PlaceholderText="Nachricht senden"  />
+            <Button Style="{StaticResource SendMessageButton}"/>
+        </StackPanel>
+
+        <!-- Grid for Kästchen -->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Kästchen -->
+            <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource PlayerBackgroundStyle}" />
+            <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource PlayerBackgroundStyle}" />
+            <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource PlayerBackgroundStyle}" />
+            <Border Grid.Row="0" Grid.Column="3" Style="{StaticResource PlayerBackgroundStyle}" />
+
+            <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource PlayerBackgroundStyle}" />
+            <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource PlayerBackgroundStyle}" />
+            <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource PlayerBackgroundStyle}" />
+            <Border Grid.Row="1" Grid.Column="3" Style="{StaticResource PlayerBackgroundStyle}" />
+
+            <Border Grid.Row="2" Grid.Column="0" Style="{StaticResource PlayerBackgroundStyle}" />
+            <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource PlayerBackgroundStyle}" />
+            <Border Grid.Row="2" Grid.Column="2" Style="{StaticResource PlayerBackgroundStyle}" />
+            <Border Grid.Row="2" Grid.Column="3" Style="{StaticResource PlayerBackgroundStyle}" />
+
+            <Border Grid.Row="3" Grid.Column="0" Style="{StaticResource PlayerBackgroundStyle}" />
+            <Border Grid.Row="3" Grid.Column="1" Style="{StaticResource PlayerBackgroundStyle}" />
+            <Border Grid.Row="3" Grid.Column="2" Style="{StaticResource PlayerBackgroundStyle}" />
+            <Border Grid.Row="3" Grid.Column="3" Style="{StaticResource PlayerBackgroundStyle}" />
+        </Grid>
     </Grid>
 </UserControl>

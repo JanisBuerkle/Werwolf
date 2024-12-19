@@ -43,11 +43,16 @@
       <Resource Include="Assets\join.png" />
       <None Remove="Assets\add.png" />
       <Resource Include="Assets\add.png" />
+      <None Remove="Assets\user_background.png" />
+      <Resource Include="Assets\user_background.png" />
+      <None Remove="Assets\send_arrow.png" />
+      <Resource Include="Assets\send_arrow.png" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
       <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="9.0.0" />
+      <PackageReference Include="WPF-UI-Enhanced" Version="10.0.0" />
     </ItemGroup>
 
     <ItemGroup>

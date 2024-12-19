@@ -87,5 +87,33 @@
             </Setter.Value>
         </Setter>
     </Style>
-
+    
+    <Style x:Key="PlayerBackgroundStyle" TargetType="Border">
+        <Setter Property="BorderBrush" Value="White" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="pack://application:,,,/Assets/user_background.png" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="SendMessageButton" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="Transparent"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            CornerRadius="10">
+                        <Image Source="pack://application:,,,/Assets/send_arrow.png" 
+                               Stretch="Fill" 
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
 </ResourceDictionary>

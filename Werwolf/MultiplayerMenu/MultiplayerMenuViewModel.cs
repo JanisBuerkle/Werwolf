@@ -45,7 +45,9 @@ public class MultiplayerMenuViewModel : ViewModelBase
         var roomReturned = await RoomClient.PostRoomAsync(room);
         
         //AddPlayer
-        await RoomClient.AddPlayer(roomReturned, "Thomas" + "-" + SignalRId);
+        Random random = new Random();
+         
+        await RoomClient.AddPlayer(roomReturned, "Thomas" + random.Next(100000, 1000000) + "-" + SignalRId);
         
         MainViewModel.GoToLobbyMenu();
     }

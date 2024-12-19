@@ -301,6 +301,28 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
+      "Microsoft.Win32.SystemEvents/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
@@ -335,6 +357,35 @@
         },
         "build": {
           "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "System.Drawing.Common/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/net6.0/System.Drawing.Common.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/net6.0/System.Drawing.Common.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
         }
       },
       "System.IO.Pipelines/9.0.0": {
@@ -426,6 +477,21 @@
         "build": {
           "buildTransitive/net8.0/_._": {}
         }
+      },
+      "WPF-UI-Enhanced/10.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing.Common": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/Wpf.Ui.Enhanced.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Wpf.Ui.Enhanced.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       },
       "Contract_Werwolf/1.0.0": {
         "type": "project",
@@ -929,6 +995,35 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Microsoft.Win32.SystemEvents/6.0.0": {
+      "sha512": "hqTM5628jSsQiv+HGpiq3WKBl2c8v1KZfby2J6Pr7pEPlK9waPdgEO6b8A/+/xn/yZ9ulv8HuqK71ONy2tg67A==",
+      "type": "package",
+      "path": "microsoft.win32.systemevents/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/Microsoft.Win32.SystemEvents.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/Microsoft.Win32.SystemEvents.dll",
+        "lib/net461/Microsoft.Win32.SystemEvents.xml",
+        "lib/net6.0/Microsoft.Win32.SystemEvents.dll",
+        "lib/net6.0/Microsoft.Win32.SystemEvents.xml",
+        "lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll",
+        "lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.xml",
+        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
+        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.xml",
+        "microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+        "microsoft.win32.systemevents.nuspec",
+        "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.xml",
+        "runtimes/win/lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.xml",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "Newtonsoft.Json/13.0.3": {
       "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
@@ -988,6 +1083,45 @@
         "lib/netstandard2.0/System.Diagnostics.DiagnosticSource.xml",
         "system.diagnostics.diagnosticsource.9.0.0.nupkg.sha512",
         "system.diagnostics.diagnosticsource.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Drawing.Common/6.0.0": {
+      "sha512": "NfuoKUiP2nUWwKZN6twGqXioIe1zVD0RIj2t976A+czLHr2nY454RwwXs6JU9Htc6mwqL6Dn/nEL3dpVf2jOhg==",
+      "type": "package",
+      "path": "system.drawing.common/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Drawing.Common.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net461/System.Drawing.Common.dll",
+        "lib/net461/System.Drawing.Common.xml",
+        "lib/net6.0/System.Drawing.Common.dll",
+        "lib/net6.0/System.Drawing.Common.xml",
+        "lib/netcoreapp3.1/System.Drawing.Common.dll",
+        "lib/netcoreapp3.1/System.Drawing.Common.xml",
+        "lib/netstandard2.0/System.Drawing.Common.dll",
+        "lib/netstandard2.0/System.Drawing.Common.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "runtimes/unix/lib/net6.0/System.Drawing.Common.dll",
+        "runtimes/unix/lib/net6.0/System.Drawing.Common.xml",
+        "runtimes/unix/lib/netcoreapp3.1/System.Drawing.Common.dll",
+        "runtimes/unix/lib/netcoreapp3.1/System.Drawing.Common.xml",
+        "runtimes/win/lib/net6.0/System.Drawing.Common.dll",
+        "runtimes/win/lib/net6.0/System.Drawing.Common.xml",
+        "runtimes/win/lib/netcoreapp3.1/System.Drawing.Common.dll",
+        "runtimes/win/lib/netcoreapp3.1/System.Drawing.Common.xml",
+        "system.drawing.common.6.0.0.nupkg.sha512",
+        "system.drawing.common.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
@@ -1180,6 +1314,25 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "WPF-UI-Enhanced/10.0.0": {
+      "sha512": "Otz5MfIza1FDcvMDF7pUjurk8YyKowR7qAGckyvVPeY7I4baeYQ9BRmjFMZFVFzfs67qsq4Y1YXjU5qdlnJVKg==",
+      "type": "package",
+      "path": "wpf-ui-enhanced/10.0.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net472/Wpf.Ui.Enhanced.dll",
+        "lib/net5.0-windows7.0/Wpf.Ui.Enhanced.dll",
+        "lib/net6.0-windows7.0/Wpf.Ui.Enhanced.dll",
+        "lib/netcoreapp3.1/Wpf.Ui.Enhanced.dll",
+        "tools/VisualStudioToolsManifest.xml",
+        "wpf-ui-enhanced.10.0.0.nupkg.sha512",
+        "wpf-ui-enhanced.nuspec",
+        "wpfuienhanced.png"
+      ]
+    },
     "Contract_Werwolf/1.0.0": {
       "type": "project",
       "path": "../Contract_Werwolf/Contract_Werwolf.csproj",
@@ -1190,37 +1343,42 @@
     "net8.0-windows7.0": [
       "CommunityToolkit.Mvvm >= 8.4.0",
       "Contract_Werwolf >= 1.0.0",
-      "Microsoft.AspNetCore.SignalR.Client >= 9.0.0"
+      "Microsoft.AspNetCore.SignalR.Client >= 9.0.0",
+      "WPF-UI-Enhanced >= 10.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\brotc\\.nuget\\packages\\": {}
+    "C:\\Users\\bks\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Werwolf\\Werwolf.csproj",
+      "projectUniqueName": "C:\\Repos\\Werwolf\\Werwolf\\Werwolf.csproj",
       "projectName": "Werwolf",
-      "projectPath": "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Werwolf\\Werwolf.csproj",
-      "packagesPath": "C:\\Users\\brotc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Werwolf\\obj\\",
+      "projectPath": "C:\\Repos\\Werwolf\\Werwolf\\Werwolf.csproj",
+      "packagesPath": "C:\\Users\\bks\\.nuget\\packages\\",
+      "outputPath": "C:\\Repos\\Werwolf\\Werwolf\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\brotc\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\bks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0-windows"
       ],
       "sources": {
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://mafbsvproget1.teamtechnik.com/nuget/approved-nuget/": {},
+        "https://mafbsvproget1.teamtechnik.com/nuget/unapproved-nuget/": {},
+        "https://www.myget.org/F/abtsoftware/api/v2": {}
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj": {
-              "projectPath": "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj"
+            "C:\\Repos\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj": {
+              "projectPath": "C:\\Repos\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj"
             }
           }
         }
@@ -1229,6 +1387,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1242,6 +1405,10 @@
           "Microsoft.AspNetCore.SignalR.Client": {
             "target": "Package",
             "version": "[9.0.0, )"
+          },
+          "WPF-UI-Enhanced": {
+            "target": "Package",
+            "version": "[10.0.0, )"
           }
         },
         "imports": [
@@ -1263,7 +1430,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

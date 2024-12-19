@@ -117,3 +117,7 @@ C:\Users\brotc\RiderProjects\Werwolf\Werwolf\obj\Debug\net8.0-windows\ref\Werwol
 C:\Users\brotc\RiderProjects\Werwolf\Werwolf\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 C:\Users\brotc\RiderProjects\Werwolf\Werwolf\bin\Debug\net8.0-windows\Contract_Werwolf.dll
 C:\Users\brotc\RiderProjects\Werwolf\Werwolf\bin\Debug\net8.0-windows\Contract_Werwolf.pdb
+C:\Repos\Werwolf\Werwolf\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Repos\Werwolf\Werwolf\bin\Debug\net8.0-windows\Contract_Werwolf.dll
+C:\Repos\Werwolf\Werwolf\bin\Debug\net8.0-windows\Contract_Werwolf.pdb
+C:\Repos\Werwolf\Werwolf\bin\Debug\net8.0-windows\Wpf.Ui.Enhanced.dll

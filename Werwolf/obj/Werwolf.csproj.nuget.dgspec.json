@@ -1,27 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Werwolf\\Werwolf.csproj": {}
+    "C:\\Repos\\Werwolf\\Werwolf\\Werwolf.csproj": {}
   },
   "projects": {
-    "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj": {
+    "C:\\Repos\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj",
+        "projectUniqueName": "C:\\Repos\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj",
         "projectName": "Contract_Werwolf",
-        "projectPath": "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj",
-        "packagesPath": "C:\\Users\\brotc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Contract_Werwolf\\obj\\",
+        "projectPath": "C:\\Repos\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj",
+        "packagesPath": "C:\\Users\\bks\\.nuget\\packages\\",
+        "outputPath": "C:\\Repos\\Werwolf\\Contract_Werwolf\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\brotc\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\bks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://mafbsvproget1.teamtechnik.com/nuget/approved-nuget/": {},
+          "https://mafbsvproget1.teamtechnik.com/nuget/unapproved-nuget/": {},
+          "https://www.myget.org/F/abtsoftware/api/v2": {}
         },
         "frameworks": {
           "net8.0": {
@@ -33,6 +37,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -60,35 +69,39 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Werwolf\\Werwolf.csproj": {
+    "C:\\Repos\\Werwolf\\Werwolf\\Werwolf.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Werwolf\\Werwolf.csproj",
+        "projectUniqueName": "C:\\Repos\\Werwolf\\Werwolf\\Werwolf.csproj",
         "projectName": "Werwolf",
-        "projectPath": "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Werwolf\\Werwolf.csproj",
-        "packagesPath": "C:\\Users\\brotc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Werwolf\\obj\\",
+        "projectPath": "C:\\Repos\\Werwolf\\Werwolf\\Werwolf.csproj",
+        "packagesPath": "C:\\Users\\bks\\.nuget\\packages\\",
+        "outputPath": "C:\\Repos\\Werwolf\\Werwolf\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\brotc\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\bks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"
         ],
         "sources": {
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://mafbsvproget1.teamtechnik.com/nuget/approved-nuget/": {},
+          "https://mafbsvproget1.teamtechnik.com/nuget/unapproved-nuget/": {},
+          "https://www.myget.org/F/abtsoftware/api/v2": {}
         },
         "frameworks": {
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj": {
-                "projectPath": "C:\\Users\\brotc\\RiderProjects\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj"
+              "C:\\Repos\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj": {
+                "projectPath": "C:\\Repos\\Werwolf\\Contract_Werwolf\\Contract_Werwolf.csproj"
               }
             }
           }
@@ -97,6 +110,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -110,6 +128,10 @@
             "Microsoft.AspNetCore.SignalR.Client": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "WPF-UI-Enhanced": {
+              "target": "Package",
+              "version": "[10.0.0, )"
             }
           },
           "imports": [
@@ -131,7 +153,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

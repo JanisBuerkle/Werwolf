@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Contract_Werwolf;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Server_Werwolf.Hubs;
 using Server_Werwolf.Models;
-using Contract_Werwolf;
-using Server_Werwolf.Controllers;
 
-namespace Server_Werwolf;
+namespace Server_Werwolf.Controllers;
 
 
 [Route("api/[controller]")]
@@ -128,7 +127,7 @@ public class RoomsController : ControllerBase
     [HttpPut("resetroom/{playerName}")]
     public async Task<IActionResult> ResetRoom(string playerName, RoomDto roomItem)
     {
-        var room = context.RoomItems.Include(r => r.Roles).First(r => r.Id.Equals(roomItem.Id));
+        var room = context.RoomItems.Include(r => r.Roles).Include(r => r.Players).First(r => r.Id.Equals(roomItem.Id));
         
         room.Roles.Clear();
 
@@ -166,7 +165,7 @@ public class RoomsController : ControllerBase
 
         context.RoomItems.Update(room);
         await context.SaveChangesAsync();
-        await myHub.SendGetRoom((int)roomItem.Id);
+        await myHub.SendGetRoom((int)room.Id);
 
         return NoContent();
     }
