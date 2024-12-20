@@ -76,15 +76,17 @@ public class RoomClient : IRoomClient
         return room;
     }
 
-    public async Task<List<RoomDto>> GetAllRooms()
+    public async Task<string> GetAllRooms()
     {
+        
         var httpClient = new HttpClient();
         var response = await httpClient.GetAsync("http://localhost:5196/api/Rooms");
         response.EnsureSuccessStatusCode();
+
+        var rooms = await response.Content.ReadAsStringAsync();
         
-        var responseContent = await response.Content.ReadAsStringAsync();
+        // var responseContent = await response.Content.ReadAsStringAsync();
         
-        var rooms = JsonConvert.DeserializeObject<List<RoomDto>>(responseContent);
         return rooms;
     }
     

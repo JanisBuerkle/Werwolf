@@ -1,4 +1,6 @@
 ﻿using Contract_Werwolf;
+using Newtonsoft.Json;
+using Werwolf.CodeInputField;
 using Werwolf.GameMenu;
 using Werwolf.Hub;
 using Werwolf.LobbyMenu;
@@ -12,61 +14,96 @@ public class MainViewModel : ViewModelBase
     private bool _mainMenuVisible;
     private bool _multiplayerMenuVisible;
     private bool _lobbyMenuVisible;
+    private bool _codeInputVisible;
     private bool _gameMenuVisible;
+    private RoomDto _room;
 
     private string _screenModeSymbol = "\u25a2";
 
+    public PlayerDto Player { get; set; }
+    public string RoomCode { get; }
     public HubService HubService { get; }
-    public RoomClient RoomClient { get; }
+    public IRoomClient RoomClient { get; }
     public MainMenuViewModel MainMenuViewModel { get; }
     public MultiplayerMenuViewModel MultiplayerMenuViewModel { get; set; }
     public LobbyMenuViewModel LobbyMenuViewModel { get; set; }
     public GameMenuViewModel GameMenuViewModel { get; set; }
+    public CodeInputViewModel CodeInputViewModel { get; set; }
 
     public MainViewModel()
     {
         RoomClient = new RoomClient();
         MultiplayerMenuViewModel = new MultiplayerMenuViewModel(this, RoomClient);
         HubService = new HubService(this, MultiplayerMenuViewModel);
-        LobbyMenuViewModel = new LobbyMenuViewModel();
+        LobbyMenuViewModel = new LobbyMenuViewModel(this);
         GameMenuViewModel = new GameMenuViewModel();
+        CodeInputViewModel = new CodeInputViewModel(this, RoomClient);
         MainMenuViewModel = new MainMenuViewModel(this);
 
         GoToMainMenu();
         // GoToLobbyMenu();
-        GoToGameMenu();
+        // GoToGameMenu();
     }
 
     public void GoToMainMenu()
     {
         MainMenuVisible = true;
-        MultiplayerMenuVisible = false;
-        LobbyMenuVisible = false;
         GameMenuVisible = false;
+        CodeInputVisible = false;
+        LobbyMenuVisible = false;
+        MultiplayerMenuVisible = false;
     }
 
     public void GoToMultiplayerMenu()
     {
-        MainMenuVisible = false;
         MultiplayerMenuVisible = true;
-        LobbyMenuVisible = false;
+        MainMenuVisible = false;
         GameMenuVisible = false;
+        CodeInputVisible = false;
+        LobbyMenuVisible = false;
     }
 
     public void GoToLobbyMenu()
     {
-        MainMenuVisible = false;
-        MultiplayerMenuVisible = false;
         LobbyMenuVisible = true;
+        MainMenuVisible = false;
         GameMenuVisible = false;
+        CodeInputVisible = false;
+        MultiplayerMenuVisible = false;
     }
 
     public void GoToGameMenu()
     {
-        MainMenuVisible = false;
-        MultiplayerMenuVisible = false;
-        LobbyMenuVisible = false;
         GameMenuVisible = true;
+        MainMenuVisible = false;
+        LobbyMenuVisible = false;
+        CodeInputVisible = false;
+        MultiplayerMenuVisible = false;
+    }
+
+    public void OpenCodeInputField()
+    {
+        CodeInputVisible = true;
+    }
+
+    public void AddPlayer()
+    {
+    }
+
+    public async void GetRoom(int roomId)
+    {
+        if (Room == null) return;
+        if (roomId == 0) roomId = (int)Room.Id;
+
+        var gettedRooms = await RoomClient.GetAllRooms();
+        var rooms = JsonConvert.DeserializeObject<List<RoomDto>>(gettedRooms);
+
+        if (rooms == null)
+        {
+            return;
+        }
+
+        Room = rooms.FirstOrDefault(r => r.RoomCode.Equals(roomId));
     }
 
     public bool MainMenuVisible
@@ -126,6 +163,34 @@ public class MainViewModel : ViewModelBase
 
             _gameMenuVisible = value;
             OnPropertyChanged();
+        }
+    }
+
+    public bool CodeInputVisible
+    {
+        get => _codeInputVisible;
+        set
+        {
+            if (value == _codeInputVisible)
+            {
+                return;
+            }
+
+            _codeInputVisible = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public RoomDto Room
+    {
+        get => _room;
+        set
+        {
+            if (_room != value)
+            {
+                _room = value;
+                OnPropertyChanged();
+            }
         }
     }
 

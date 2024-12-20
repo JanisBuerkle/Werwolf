@@ -47,6 +47,8 @@
       <Resource Include="Assets\user_background.png" />
       <None Remove="Assets\send_arrow.png" />
       <Resource Include="Assets\send_arrow.png" />
+      <None Remove="Assets\defaultuser.png" />
+      <Resource Include="Assets\defaultuser.png" />
     </ItemGroup>
 
     <ItemGroup>

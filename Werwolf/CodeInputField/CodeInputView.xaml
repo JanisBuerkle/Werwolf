@@ -1,0 +1,45 @@
+<UserControl x:Class="Werwolf.CodeInputField.CodeInputView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             mc:Ignorable="d"
+             Height="450" Width="700" 
+             Name="CodeInput">
+    <Border Background="#2e2e2e" BorderThickness="0" CornerRadius="20">
+        <Grid DataContext="{Binding ElementName=CodeInput, Path=ViewModel}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button Command="{Binding CloseGiveNameCommand}" Grid.Row="0" Grid.Column="4" VerticalAlignment="Top"
+                    HorizontalAlignment="Right" BorderBrush="Transparent" Background="Transparent" Foreground="Red"
+                    Content="x" />
+
+            <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+                <TextBlock HorizontalAlignment="Center" Foreground="White"
+                           FontSize="30" FontWeight="Bold" Margin="0,150,0,0" Text="Beitrittscode eingeben:" />
+
+                <TextBlock HorizontalAlignment="Center" Foreground="White"
+                           FontSize="8" FontWeight="Bold" Text="maximal 6 Zeichen" />
+            </StackPanel>
+
+            <ui:TextBox Name="InputTextBox" TextChanged="TextChanged" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+                        PlaceholderText="Beitrittscode eingeben..." MaxLength="16" />
+
+            <Button Grid.Row="2" Grid.Column="2" IsEnabled="{Binding JoinButtonIsEnabled}" Margin="0,20,0,0"
+                    VerticalAlignment="Top" HorizontalAlignment="Center" Content="Raum beitreten" Click="SaveCode"
+                    Command="{Binding JoinRoomCommand}" />
+        </Grid>
+    </Border>
+</UserControl>

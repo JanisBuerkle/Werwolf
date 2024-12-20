@@ -3,8 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:codeInputField="clr-namespace:Werwolf.CodeInputField"
              mc:Ignorable="d"
              Name="MultiplayerMenu">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid DataContext="{Binding ElementName=MultiplayerMenu, Path=ViewModel}">
         <Grid IsHitTestVisible="False">
             <Image Source="../Assets/mainmenu_background.png" Stretch="UniformToFill" />
@@ -21,17 +27,25 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            
-            <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource CreateOrJoinButton}" Margin="0,0,20,0" Command="{Binding CreateRoomCommand}">
+
+            <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource CreateOrJoinButton}" Margin="0,0,20,0"
+                    Command="{Binding CreateRoomCommand}">
                 <Button.Content>
-                    <Image Source="../Assets/add.png" Stretch="Fill"/>
-                </Button.Content>
-            </Button>            
-            <Button Grid.Row="1" Grid.Column="2" Style="{StaticResource CreateOrJoinButton}" Margin="20,0,0,0" Command="{Binding }">
-                <Button.Content>
-                    <Image Source="../Assets/join.png" Stretch="Fill"/>
+                    <Image Source="../Assets/add.png" Stretch="Fill" />
                 </Button.Content>
             </Button>
+            <Button Grid.Row="1" Grid.Column="2" Style="{StaticResource CreateOrJoinButton}" Margin="20,0,0,0"
+                    Command="{Binding JoinRoomCommand}">
+                <Button.Content>
+                    <Image Source="../Assets/join.png" Stretch="Fill" />
+                </Button.Content>
+            </Button>
+        </Grid>
+        
+        <!-- CodeInputMenu Fenster -->
+        <Grid Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="4" ZIndex="1000"
+              Visibility="{Binding MainViewModel.CodeInputVisible , Converter={StaticResource BooleanToVisibilityConverter}}">
+            <codeInputField:CodeInputView ViewModel="{Binding MainViewModel.CodeInputViewModel}" />
         </Grid>
     </Grid>
 </UserControl>

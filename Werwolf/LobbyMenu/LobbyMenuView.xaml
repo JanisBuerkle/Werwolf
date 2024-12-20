@@ -3,8 +3,80 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d">
-    <Grid>
-        
+             mc:Ignorable="d"
+             Name="Lobby">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Window/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid DataContext="{Binding ElementName=Lobby, Path=ViewModel.MainViewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Home Button -->
+        <!-- <Button Command="{Binding LeaveRoomCommand}" Grid.Column="0" Grid.Row="0" -->
+        <!--         Style="{StaticResource HomeButtonStyle}" /> -->
+
+        <Label Grid.Row="0" Grid.Column="1" FontSize="35" FontWeight="Bold" Foreground="White"
+               HorizontalAlignment="Center" Content="{Binding Room.RoomCode}" Margin="0,50,0,0" />
+
+        <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" Margin="0,0,30,0">
+            <TextBlock Foreground="White" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" Margin="0,5,5,0">
+                <Run Text="{Binding Room.OnlineUsersNumber}" />
+                <Run>/</Run>
+                <Run Text="16" />
+            </TextBlock>
+
+            <Border MaxWidth="40">
+                <Image Source="pack://application:,,,/Assets/defaultuser.png" />
+            </Border>
+        </StackPanel>
+
+        <ItemsControl Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Room.Players}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+
+                    <Border Margin="5" Padding="5" BorderThickness="2" Background="#2e2e2e" BorderBrush="#2e2e2e"
+                            CornerRadius="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Background="#2e2e2e" TextAlignment="Center" Foreground="White"
+                                       Text="{Binding Name }" FontSize="25" />
+
+                            <Label Grid.Column="1" Content="Besitzer" Foreground="Gray" FontSize="15"
+                                   HorizontalAlignment="Right" VerticalAlignment="Center"
+                                   Visibility="{Binding IsLeader, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Bottom"
+                    Margin="0,0,0, 100"
+                    Visibility="{Binding Player.IsLeader, Converter={StaticResource BooleanToVisibilityConverter}}">
+
+            <StackPanel IsEnabled="{Binding Room.StartButtonEnabled}">
+                <Button DataContext="{Binding ElementName=Lobby, Path=ViewModel}" Content="Starten"
+                        Background="DarkGreen"
+                        HorizontalAlignment="Center" Height="50" Width="200" Command="{Binding StartRoomCommand }" />
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </UserControl>
