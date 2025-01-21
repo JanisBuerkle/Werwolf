@@ -6,7 +6,6 @@ using Server_Werwolf.Models;
 
 namespace Server_Werwolf.Controllers;
 
-
 [Route("api/[controller]")]
 [ApiController]
 public class RoomsController : ControllerBase
@@ -102,7 +101,7 @@ public class RoomsController : ControllerBase
             }
         }
 
-        await myHub.SendGetRoom((int)roomItem.Id);
+        await myHub.SendGetAllRooms();
         return NoContent();
     }
 
@@ -111,13 +110,14 @@ public class RoomsController : ControllerBase
     [HttpPut("startroom/{roomid}")]
     public async Task<IActionResult> RoomId(long roomid, RoomDto roomItem)
     {
-        var room = context.RoomItems.Include(r => r.Roles).Include(room => room.Players).First(r => r.Id.Equals(roomItem.Id));
-        
+        var room = context.RoomItems.Include(r => r.Roles).Include(room => room.Players)
+            .First(r => r.Id.Equals(roomItem.Id));
+
         //ToDo: Rollenvergabe, Start
 
         context.RoomItems.Update(room);
         await context.SaveChangesAsync();
-        await myHub.SendGetRoom((int)roomItem.Id);
+        await myHub.SendGetAllRooms();
 
         return NoContent();
     }
@@ -128,12 +128,12 @@ public class RoomsController : ControllerBase
     public async Task<IActionResult> ResetRoom(string playerName, RoomDto roomItem)
     {
         var room = context.RoomItems.Include(r => r.Roles).Include(r => r.Players).First(r => r.Id.Equals(roomItem.Id));
-        
+
         room.Roles.Clear();
 
         context.RoomItems.Update(room);
         await context.SaveChangesAsync();
-        await myHub.SendGetRoom((int)roomItem.Id);
+        await myHub.SendGetAllRooms();
 
         return NoContent();
     }
@@ -145,11 +145,13 @@ public class RoomsController : ControllerBase
         var playerName = p[0];
         var connectionId = p[1];
         var player = context.Players.FirstOrDefault(p => p.Name.Equals(playerName));
-        var room = context.RoomItems.Include(r => r.Roles).Include(room => room.Players).First(r => r.Id.Equals(roomItem.Id));
+        var room = context.RoomItems.Include(r => r.Roles).Include(room => room.Players)
+            .First(r => r.Id.Equals(roomItem.Id));
 
         if (player == null)
         {
-            player = (await context.Players.AddAsync(new Player { Name = playerName, ConnectionId = connectionId, RoomId = room.Id})).Entity;
+            player = (await context.Players.AddAsync(new Player
+                { Name = playerName, ConnectionId = connectionId, RoomId = room.Id })).Entity;
         }
 
         if (room.Players.Count >= 3)
@@ -165,7 +167,24 @@ public class RoomsController : ControllerBase
 
         context.RoomItems.Update(room);
         await context.SaveChangesAsync();
-        await myHub.SendGetRoom((int)room.Id);
+        await myHub.SendGetAllRooms();
+
+        return NoContent();
+    }
+
+    [HttpPut("sendmessage/{messageInformation}")]
+    public async Task<IActionResult> SendMessage(string messageInformation, RoomDto roomItem)
+    {
+        var room = context.RoomItems.Include(r => r.Roles).Include(room => room.Players).Include(room => room.Chat)
+            .First(r => r.Id.Equals(roomItem.Id));
+
+        var message = messageInformation.Split("-");
+
+        room.Chat.Add(new Chat { User = message[0], Message = message[1] });
+
+        context.RoomItems.Update(room);
+        await context.SaveChangesAsync();
+        await myHub.SendGetAllRooms();
 
         return NoContent();
     }
@@ -179,20 +198,21 @@ public class RoomsController : ControllerBase
             {
                 if (player.ConnectionId == id)
                 {
-                    var room = context.RoomItems.Include(r => r.Roles).Include(r => r.Players).First(r => r.Id.Equals(roomFromList.Id));
+                    var room = context.RoomItems.Include(r => r.Roles).Include(r => r.Players)
+                        .First(r => r.Id.Equals(roomFromList.Id));
                     if (room.Players.Count <= 2)
                     {
                         room.StartButtonEnabled = false;
                     }
 
                     room.OnlineUsersNumber--;
-                    
+
                     var httpClient = new HttpClient();
                     var removePlayerUrl = $"http://localhost:5196/api/Player/{player.Id}";
                     var response = await httpClient.DeleteAsync(removePlayerUrl);
 
                     context.RoomItems.Update(room);
-                    await myHub.SendGetRoom((int)roomItem.Id);
+                    await myHub.SendGetAllRooms();
                     await context.SaveChangesAsync();
                 }
             }
@@ -211,7 +231,7 @@ public class RoomsController : ControllerBase
         context.RoomItems.Add(room);
 
         await context.SaveChangesAsync();
-        await myHub.SendGetRoom((int)roomDto.Id);
+        await myHub.SendGetAllRooms();
         return CreatedAtAction(nameof(GetRoom), new { id = room.Id }, room);
     }
 
@@ -227,7 +247,7 @@ public class RoomsController : ControllerBase
 
         context.RoomItems.Remove(roomItem);
         await context.SaveChangesAsync();
-        await myHub.SendGetRoom((int)roomItem.Id);
+        await myHub.SendGetAllRooms();
         return NoContent();
     }
 

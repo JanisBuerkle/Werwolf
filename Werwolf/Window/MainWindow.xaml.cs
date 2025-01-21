@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using Werwolf.Hub;
 
 namespace Werwolf.Window;
 
@@ -19,6 +20,7 @@ public partial class MainWindow : System.Windows.Window
     {
         MainViewModel = new MainViewModel();
         InitializeComponent();
+        var service =  new HubService(MainViewModel, MainViewModel.MultiplayerMenuViewModel);
     }
 
     private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

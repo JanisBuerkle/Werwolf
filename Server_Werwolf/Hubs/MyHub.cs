@@ -6,9 +6,9 @@ namespace Server_Werwolf.Hubs;
 
 public class MyHub : Hub
 {
-    public async Task SendGetRoom(int roomId)
+    public async Task SendGetAllRooms()
     {
-        await Clients.All.SendAsync("GetRoom", roomId);
+        await Clients.All.SendAsync("GetAllRooms", "");
     }
     
     public override async Task OnDisconnectedAsync(Exception? exception)

@@ -22,13 +22,18 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.Row="0" Grid.Column="0" Background="{Binding BackgroundColor}" />
-        <TextBlock Grid.Row="1" Grid.Column="0" Background="{Binding BackgroundColor}"
-                   Foreground="{Binding ForegroundColor}" />
+        
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+            <TextBlock Background="{Binding BackgroundColor}" Foreground="{Binding ForegroundColor}" />
+            <TextBox Name="MessageBox" Background="DarkGray" />
+            <Button Click="SendMessageClick" Background="Black" Content="➤" FontSize="6" />
+        </StackPanel>
 
-        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
             <ui:TextBox Background="{Binding BackgroundColor}"
-                        Foreground="{Binding ForegroundColor}" PlaceholderText="Nachricht senden"  />
-            <Button Style="{StaticResource SendMessageButton}"/>
+                        Foreground="{Binding ForegroundColor}" PlaceholderText="Nachricht senden" />
+            <Button Style="{StaticResource SendMessageButton}" />
         </StackPanel>
 
         <!-- Grid for Kästchen -->

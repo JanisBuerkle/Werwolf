@@ -9,5 +9,6 @@ public class Room
     public int OnlineUsersNumber { get; set; }
     public bool StartButtonEnabled { get; set; }
     public List<Player> Players { get; set; } = new();
+    public List<Chat> Chat { get; set; } = new();
     public ObservableCollection<Role> Roles { get; set; } = new();
 }

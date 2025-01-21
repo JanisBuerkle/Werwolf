@@ -40,7 +40,6 @@ public class MultiplayerMenuViewModel : ViewModelBase
     private async void CreateRoom()
     {
         //CreateRoomCode
-
         var gettedRooms = await RoomClient.GetAllRooms();
         var rooms = JsonConvert.DeserializeObject<List<RoomDto>>(gettedRooms);
 
@@ -52,10 +51,10 @@ public class MultiplayerMenuViewModel : ViewModelBase
 
         //CreateRoom
         var room = new RoomDto() { RoomCode = code };
+        MainViewModel.Room = room;
         var roomReturned = await RoomClient.PostRoomAsync(room);
 
         //AddPlayer
-
         await RoomClient.AddPlayer(roomReturned, MainViewModel.Player + "-" + SignalRId);
 
         MainViewModel.GoToLobbyMenu();

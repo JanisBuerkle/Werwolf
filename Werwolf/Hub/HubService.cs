@@ -7,35 +7,35 @@ namespace Werwolf.Hub;
 
 public class HubService
 {
-    private readonly HubConnection hubConnection;
+    private readonly HubConnection _hubConnection;
     private readonly MainViewModel _mainViewModel;
-    private readonly Random _random;
     private readonly MultiplayerMenuViewModel _multiplayerMenuViewModel;
 
     public HubService(MainViewModel mainViewModel, MultiplayerMenuViewModel multiplayerMenuViewModel)
     {
-        _random = new Random();
         _multiplayerMenuViewModel = multiplayerMenuViewModel;
         _mainViewModel = mainViewModel;
-        hubConnection = new HubConnectionBuilder().WithUrl("http://localhost:5196/myHub").Build();
+        _hubConnection = new HubConnectionBuilder().WithUrl("http://localhost:5196/myHub").Build();
         InitializeSignalR();
     }
 
     private async void InitializeSignalR()
     {
-        hubConnection.On<string>("GetRoom", roomid =>
+        _hubConnection.On<string>("GetAllRooms", message =>
         {
-            _mainViewModel.GetRoom(int.Parse(roomid));
+            _mainViewModel.GetAllRooms();
         });
 
         try
         {
-            await hubConnection.StartAsync();
+            await _hubConnection.StartAsync();
             Console.WriteLine("Verbindung hergestellt.");
-            var signalRUserId = hubConnection.ConnectionId;
+            var signalRUserId = _hubConnection.ConnectionId;
             _mainViewModel.MultiplayerMenuViewModel.SignalRId = signalRUserId;
 
-            _mainViewModel.Player = new PlayerDto { Name = "Thomas" + _random.Next(100000, 1000000), ConnectionId = signalRUserId };
+            Random random = new Random();
+            
+            _mainViewModel.Player = new PlayerDto { Name = "Thomas" + random.Next(100000, 1000000), ConnectionId = signalRUserId };
         }
         catch (Exception ex)
         {

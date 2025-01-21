@@ -30,7 +30,7 @@ public class CodeInputViewModel : ViewModelBase
 
     private async void JoinRoom()
     {
-        MainViewModel.GetRoom(0);
+        await MainViewModel.GetAllRooms();
 
         var gettedRooms = await RoomClient.GetAllRooms();
         var rooms = JsonConvert.DeserializeObject<List<RoomDto>>(gettedRooms);

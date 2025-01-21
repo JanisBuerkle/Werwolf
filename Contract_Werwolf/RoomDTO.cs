@@ -9,5 +9,6 @@ public class RoomDto
     public int OnlineUsersNumber { get; set; }
     public bool StartButtonEnabled { get; set; }
     public List<PlayerDto> Players { get; set; } = new();
+    public List<ChatDto> Chat { get; set; } = new();
     public ObservableCollection<RoleDto> Roles { get; set; } = new();
 }

@@ -115,7 +115,7 @@ public class PlayerController : ControllerBase
         context.Players.Remove(multiplayerPlayer);
         await context.SaveChangesAsync();
 
-        await myHub.SendGetRoom((int)multiplayerPlayer.RoomId);
+        await myHub.SendGetAllRooms();
         return NoContent();
     }
 

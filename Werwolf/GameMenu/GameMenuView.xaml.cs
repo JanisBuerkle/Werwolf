@@ -10,11 +10,16 @@ public partial class GameMenuView : UserControl
 
     public GameMenuViewModel ViewModel
     {
-        get { return (GameMenuViewModel)GetValue(ViewModelProperty); }
-        set { SetValue(ViewModelProperty, value); }
+        get => (GameMenuViewModel)GetValue(ViewModelProperty);
+        set => SetValue(ViewModelProperty, value);
     }
     public GameMenuView()
     {
         InitializeComponent();
+    }
+
+    private void SendMessageClick(object sender, RoutedEventArgs e)
+    {
+        var message = MessageBox.Text;
     }
 }

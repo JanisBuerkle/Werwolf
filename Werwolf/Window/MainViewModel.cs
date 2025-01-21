@@ -1,4 +1,6 @@
-﻿using Contract_Werwolf;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
+using Contract_Werwolf;
 using Newtonsoft.Json;
 using Werwolf.CodeInputField;
 using Werwolf.GameMenu;
@@ -23,7 +25,7 @@ public class MainViewModel : ViewModelBase
     public PlayerDto Player { get; set; }
     public string RoomCode { get; }
     public HubService HubService { get; }
-    public IRoomClient RoomClient { get; }
+    public RoomClient RoomClient { get; }
     public MainMenuViewModel MainMenuViewModel { get; }
     public MultiplayerMenuViewModel MultiplayerMenuViewModel { get; set; }
     public LobbyMenuViewModel LobbyMenuViewModel { get; set; }
@@ -34,7 +36,6 @@ public class MainViewModel : ViewModelBase
     {
         RoomClient = new RoomClient();
         MultiplayerMenuViewModel = new MultiplayerMenuViewModel(this, RoomClient);
-        HubService = new HubService(this, MultiplayerMenuViewModel);
         LobbyMenuViewModel = new LobbyMenuViewModel(this);
         GameMenuViewModel = new GameMenuViewModel();
         CodeInputViewModel = new CodeInputViewModel(this, RoomClient);
@@ -90,20 +91,39 @@ public class MainViewModel : ViewModelBase
     {
     }
 
-    public async void GetRoom(int roomId)
+    public async Task GetAllRooms()
     {
-        if (Room == null) return;
-        if (roomId == 0) roomId = (int)Room.Id;
+        var gettedRoomsTask = RoomClient.GetAllRooms();
+        var gettedRooms = await gettedRoomsTask;
 
-        var gettedRooms = await RoomClient.GetAllRooms();
         var rooms = JsonConvert.DeserializeObject<List<RoomDto>>(gettedRooms);
 
-        if (rooms == null)
+        if (Room != null)
         {
-            return;
-        }
+            foreach (var room in rooms)
+            {
+                if (Room.Id == room.Id)
+                {
+                    Room = room;
+                }
+            }
 
-        Room = rooms.FirstOrDefault(r => r.RoomCode.Equals(roomId));
+            foreach (var player in Room.Players)
+            {
+                if (Player.Name == player.Name)
+                {
+                    Player = player;
+                }
+            }
+            
+            foreach (var room in rooms)
+            {
+                if (room.OnlineUsersNumber >= 16)
+                {
+                    //Raum ist voll irgendwie sagen
+                }
+            }
+        }
     }
 
     public bool MainMenuVisible

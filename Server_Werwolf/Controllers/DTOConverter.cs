@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using Contract_Werwolf;
+﻿using Contract_Werwolf;
 using Server_Werwolf.Models;
 
 namespace Server_Werwolf.Controllers;
@@ -26,6 +25,12 @@ public class DtoConverter
         {
             var newCard = new Role { Id = role.Id, Name = role.Name, Team = role.Team };
             room.Roles.Add(newCard);
+        }
+        
+        foreach (var chat in roomDto.Chat)
+        {
+            var newChat = new Chat { User = chat.User, Message = chat.Message };
+            room.Chat.Add(newChat);
         }
 
         return room;

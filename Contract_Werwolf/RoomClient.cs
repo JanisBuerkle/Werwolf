@@ -41,6 +41,18 @@ public class RoomClient : IRoomClient
         response.EnsureSuccessStatusCode();
     }
     
+    public async Task SendMessage(RoomDto roomToUpdate, string messageInformation)
+    {
+        var httpClient = new HttpClient();
+        var jsonContent = JsonConvert.SerializeObject(roomToUpdate);
+        var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+        var addPlayerUrl = $"http://localhost:5196/api/Rooms/sendmessage/{messageInformation}";
+
+        var response = await httpClient.PutAsync(addPlayerUrl, httpContent);
+        response.EnsureSuccessStatusCode();
+    }
+    
     public async Task RemovePlayer(RoomDto roomToUpdate, int id)
     {
         await GetPlayers();
